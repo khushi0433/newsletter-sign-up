@@ -51,13 +51,28 @@
     gap: 1rem;
   }
   
-  #email {
+#email {
     padding: 1rem;
     border: 1px solid var(--grey);
     border-radius: 0.5rem;
+    width: 100%;
   }
   
-  #submit-btn {
+  #email:invalid:not(:focus):not(:placeholder-shown) {
+    border-color: var(--tomato);
+    background-color: rgba(255, 98, 87, 0.1);
+    color: var(--tomato);
+  }
+  
+  .error-message {
+    color: var(--tomato);
+    font-size: 0.8rem;
+    display: none;
+    margin-top: -0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+#submit-btn, #dismiss-btn {
     background: var(--dark-slate);
     color: var(--white);
     padding: 1rem;
@@ -65,10 +80,29 @@
     border-radius: 0.5rem;
     font-weight: bold;
     cursor: pointer;
-  }
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+#dismiss-btn:hover, #dismiss-btn:focus,
+#submit-btn:hover, #submit-btn:focus {
+    background: linear-gradient(90deg, #ff5379, #ff693e);
+    box-shadow: 0 4px 8px rgba(255, 98, 87, 0.3);
+}
   .success-card {
     display: none;
     padding: 2rem;
+    background: var(--white);
+    border-radius: 2rem;
+    max-width: 28rem;
+  }
+  
+  .success-card h1 {
+    margin: 1.5rem 0;
+  }
+  
+  .success-card img {
+    width: 3.5rem;
   }
   
   @media (max-width: 768px) {
